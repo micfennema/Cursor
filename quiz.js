@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     translationInput.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
             event.preventDefault(); // Prevent the default action (new line)
-            submitTranslation();
+            document.getElementById("submit-translation").click(); // Trigger the submit button
         }
     });
 
