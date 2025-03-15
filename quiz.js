@@ -40,6 +40,18 @@ document.addEventListener("DOMContentLoaded", () => {
     verseElement.textContent = currentVerse.original;
 
     document.getElementById("submit-translation").addEventListener("click", () => {
+        submitTranslation();
+    });
+
+    // Add event listener for Enter key
+    translationInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent the default action (new line)
+            submitTranslation();
+        }
+    });
+
+    function submitTranslation() {
         const userTranslation = translationInput.value;
         const feedback = analyzeTranslation(userTranslation, currentVerse.translation);
         
@@ -52,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show the "Show Answer" and "Refresh" buttons after submission
         showAnswerButton.style.display = "inline-block"; 
         refreshButton.style.display = "inline-block"; 
-    });
+    }
 
     showAnswerButton.addEventListener("click", () => {
         feedbackElement.innerHTML += `
