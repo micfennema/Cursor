@@ -13,27 +13,45 @@
             justify-content: center;
             height: 100vh; /* Full height of the viewport */
             margin: 0;
+            font-size: 1em; /* Base font size */
+            font-family: Arial, sans-serif; /* Thinner font style */
         }
         #quiz-container {
             text-align: center; /* Center text inside the container */
+            font-size: 1em; /* Base font size for the quiz container */
+            width: 90%; /* Set the width of the quiz container */
+            max-width: 840px; /* Set a maximum width for the container */
         }
         #translation-input {
-            width: 80%; /* Adjust width as needed */
-            max-width: 600px; /* Set a maximum width */
+            width: 100%; /* Make the textarea full width */
+            max-width: 630px; /* Set a maximum width */
             margin: 10px auto; /* Center the textarea */
             display: block; /* Ensure it behaves as a block element */
+            height: 105px; /* Height of the textarea */
+            font-size: 1em; /* Base font size for the textarea */
+        }
+        button {
+            font-size: 1em; /* Base font size for buttons */
+            padding: 10px 21px; /* Padding for buttons */
+            width: 100%; /* Make buttons full width */
+            max-width: 210px; /* Set a maximum width for buttons */
+            margin: 10px 0; /* Add margin for spacing */
+        }
+        .hebrew, .greek {
+            font-size: 2.5em; /* Increase font size for Hebrew and Greek text by 150% */
+            font-family: 'Times New Roman', serif; /* Optional: Use a different font for Hebrew and Greek */
         }
     </style>
 </head>
 <body>
     <h1>Daily Translation Quiz</h1>
     <div id="quiz-container">
-        <p id="verse"></p>
+        <p id="verse" class="hebrew"></p>
         <h2 style="margin-top: 20px;">Translate the Verse:</h2>
         <textarea id="translation-input" placeholder="Type your translation here..."></textarea>
         <button id="submit-translation">Submit</button>
         <button id="show-answer" style="display: none;">Show Answer</button>
-        <button id="refresh-verse" style="display: none;">Try Another Verse</button>
+        <button id="refresh-verse">Try Another Verse</button>
         <div id="feedback"></div>
     </div>
     <script src="quiz.js"></script>

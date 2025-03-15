@@ -1,14 +1,22 @@
 let verses = [];
 
-// Sample verses in Hebrew and Greek
+// Sample verses in Hebrew (BHS) and Greek (Nestle-Aland 28)
 const hebrewVerses = [
     { original: "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ", translation: "In the beginning God created the heavens and the earth", reference: "Genesis 1:1" },
-    { original: "כִּי אֲנִי יְהוָה אֱלֹהֵיכֶן", translation: "For I am the Lord your God", reference: "Exodus 20:2" }
+    { original: "כִּי אֲנִי יְהוָה אֱלֹהֵיכֶן", translation: "For I am the Lord your God", reference: "Exodus 20:2" },
+    { original: "שְׁמַע יִשְׂרָאֵל", translation: "Hear, O Israel", reference: "Deuteronomy 6:4" },
+    { original: "וַיְהִי עֶרֶב וַיְהִי בֹקֶר", translation: "And there was evening, and there was morning", reference: "Genesis 1:5" }
 ];
 
 const greekVerses = [
     { original: "Ἐγώ εἰμι ἡ ὁδός", translation: "I am the way", reference: "John 14:6" },
-    { original: "Ἐγώ εἰμι ἡ ἀλήθεια", translation: "I am the truth", reference: "John 14:6" }
+    { original: "Ἐγώ εἰμι ἡ ἀλήθεια", translation: "I am the truth", reference: "John 14:6" },
+    { original: "Ἐγώ εἰμι ἡ ζωή", translation: "I am the life", reference: "John 14:6" },
+    { original: "Ἀγάπη ἐστίν", translation: "Love is", reference: "1 John 4:8" },
+    { original: "Πάντα ἔχω ἐν τῷ ἐνδυναμοῦντί με", translation: "I can do all things through Him who strengthens me", reference: "Philippians 4:13" },
+    { original: "ὁ θεὸς ἀγάπη ἐστίν", translation: "God is love", reference: "1 John 4:8" },
+    { original: "Ἐν ἀρχῇ ἦν ὁ Λόγος", translation: "In the beginning was the Word", reference: "John 1:1" },
+    { original: "Ἐγὼ ἀναστὴσομαι", translation: "I will rise again", reference: "John 11:25" }
 ];
 
 // Combine Hebrew and Greek verses into one array
@@ -46,9 +54,8 @@ function initializeQuiz() {
             <p>${feedback.grammar.join(", ")}</p>
         `;
         
-        // Show the "Show Answer" and "Refresh" buttons after submission
+        // Show the "Show Answer" button after submission
         showAnswerButton.style.display = "inline-block"; 
-        refreshButton.style.display = "inline-block"; 
     }
 
     let answerShown = false; // Flag to track if the answer has been shown
@@ -69,7 +76,6 @@ function initializeQuiz() {
         translationInput.value = ""; // Clear the input
         feedbackElement.innerHTML = ""; // Clear feedback
         showAnswerButton.style.display = "none"; // Hide the show answer button
-        refreshButton.style.display = "none"; // Hide the refresh button
         answerShown = false; // Reset the flag for the new verse
     });
 }
