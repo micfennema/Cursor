@@ -51,11 +51,16 @@ function initializeQuiz() {
         refreshButton.style.display = "inline-block"; 
     }
 
+    let answerShown = false; // Flag to track if the answer has been shown
+
     showAnswerButton.addEventListener("click", () => {
-        feedbackElement.innerHTML += `
-            <h3>Correct Answer:</h3>
-            <p>${currentVerse.translation} (${currentVerse.reference})</p>
-        `;
+        if (!answerShown) { // Check if the answer has not been shown yet
+            feedbackElement.innerHTML += `
+                <h3>Correct Answer:</h3>
+                <p>${currentVerse.translation} (${currentVerse.reference})</p>
+            `;
+            answerShown = true; // Set the flag to true after showing the answer
+        }
     });
 
     refreshButton.addEventListener("click", () => {
@@ -65,6 +70,7 @@ function initializeQuiz() {
         feedbackElement.innerHTML = ""; // Clear feedback
         showAnswerButton.style.display = "none"; // Hide the show answer button
         refreshButton.style.display = "none"; // Hide the refresh button
+        answerShown = false; // Reset the flag for the new verse
     });
 }
 
@@ -108,11 +114,5 @@ function analyzeTranslation(userTranslation, correctTranslation) {
     return feedback;
 }
 
-fetch('verses.json')
-    .then(response => response.json())
-    .then(data => {
-        verses = data; // If you have more verses in the JSON, you can merge them here
-        // Initialize the quiz with the first verse
-        initializeQuiz();
-    })
-    .catch(error => console.error('Error loading verses:', error)); 
+// Initialize the quiz with the first verse
+initializeQuiz(); 
