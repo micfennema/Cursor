@@ -17,6 +17,12 @@
         #quiz-container {
             text-align: center; /* Center text inside the container */
         }
+        #translation-input {
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Set a maximum width */
+            margin: 10px auto; /* Center the textarea */
+            display: block; /* Ensure it behaves as a block element */
+        }
     </style>
 </head>
 <body>
@@ -24,7 +30,7 @@
     <div id="quiz-container">
         <p id="verse"></p>
         <h2 style="margin-top: 20px;">Translate the Verse:</h2>
-        <textarea id="translation-input" placeholder="Type your translation here..." style="margin-top: 10px;"></textarea>
+        <textarea id="translation-input" placeholder="Type your translation here..."></textarea>
         <button id="submit-translation">Submit</button>
         <button id="show-answer" style="display: none;">Show Answer</button>
         <button id="refresh-verse" style="display: none;">Try Another Verse</button>
